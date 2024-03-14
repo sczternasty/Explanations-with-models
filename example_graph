@@ -1,0 +1,14 @@
+digraph {
+	graph [nodesep=1.5 overlap=false ranksep=.5]
+	x0 [label="Margherita, PizzaComUmNome" fontsize=10 shape=box style=rounded xlabel=x0 xlp=""]
+	x0 -> x1 [label=hasTopping arrowsize=0.5 fontsize=10]
+	x1 [label="TomatoTopping, VegetableTopping" fontsize=10 shape=box style=rounded xlabel=x1 xlp=""]
+	x1 -> x2 [label=hasSpiciness arrowsize=0.5 fontsize=10]
+	x2 [label="Mild, Spiciness" fontsize=10 shape=box style=rounded xlabel=x2 xlp=""]
+	x0 -> x3 [label=hasTopping arrowsize=0.5 fontsize=10]
+	x3 [label="MozzarellaTopping, CheeseTopping" fontsize=10 shape=box style=rounded xlabel=x3 xlp=""]
+	x3 -> x4 [label=hasCountryOfOrigin arrowsize=0.5 fontsize=10]
+	x4 [label=Italy fontsize=10 shape=box style=rounded xlabel=x4 xlp=""]
+	x3 -> x5 [label=hasSpiciness arrowsize=0.5 fontsize=10]
+	x5 [label="Mild, Spiciness" fontsize=10 shape=box style=rounded xlabel=x5 xlp=""]
+}
