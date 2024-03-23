@@ -9,16 +9,13 @@ ontology_name = input("Ontology name: ")
 while not(os.path.isfile(os.path.join(os.getcwd(), ontology_name))):
     print("Error: File not found")
     ontology_name = input("Ontology name: ")
-
-axioms = loadOntology(ontology_name)
 concept_name = input("Concept name (if necessary add quotation marks): ")
 max_iter = int(input("Maximum number of iterations: "))
 
-try:
-    complex_concept = unfold_tbox(concept_name, axioms, max_iter)
-    ABox_dict = tableauMethod(complex_concept)
-    graph = generate_graph(ABox_dict)
-    graph.render(concept_name + " graph", format='png', cleanup=True)
-    graph.view()
-except Exception as e:
-    raise
+axioms = loadOntology(ontology_name)
+complex_concept = unfold_tbox(concept_name, axioms, max_iter)
+ABox_dict = tableauMethod(complex_concept)
+graph = generate_graph(ABox_dict)
+graph.render(concept_name + " graph", format='png', cleanup=True)
+graph.view()
+

@@ -5,6 +5,9 @@ gateway = JavaGateway()
 formatter = gateway.getSimpleDLFormatter()
 
 def generate_graph(dictionary):
+    if not(dictionary):
+        print("ABox is empty")
+        return
     dot = graphviz.Digraph(graph_attr={'ranksep': '.5', 'nodesep': '1.5', 'overlap': 'false'})
     preprocessed_dictionary = {}
 
@@ -12,7 +15,7 @@ def generate_graph(dictionary):
         for d in y:
             if d.getClass().getSimpleName() == "ConceptName" or d.getClass().getSimpleName() == "RoleName":
                 preprocessed_dictionary[x] = preprocessed_dictionary.get(x, []) + [
-                    re.sub(r'[^a-zA-Z]', '', formatter.format(d))]
+                    re.sub(r'[^a-zA-Z0-9_]', '', formatter.format(d))]
 
     for key, value in preprocessed_dictionary.items():
         if isinstance(key, tuple):
